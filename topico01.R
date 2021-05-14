@@ -27,7 +27,7 @@ df[2,c("nome","idade")]
 df[df$idade < 30,]
 df[df$idade < 30,c("nome","idade")]
 
-# Incluir variavel no data frame
+# Incluir variavel no data frame 
 df$peso <- c(140,70,72,65,76)
 
 # Lendo arquivo
