@@ -136,24 +136,24 @@ t(B)
 
 
 #-----------Array----------
-#dim = c(linha,coluna,qnt dimensões)
+#dim = c(linha,coluna,qnt dimensoes)
 A <- array(1:24,dim=c(3,4,2))   
 A
 
 
 #selecionar uma linha ou uma coluna do array 
-#--todas as linhas da segunda coluna da segunda dimensão
+#--todas as linhas da segunda coluna da segunda dimensao
 A[,1,2]
 #---
 A[,c(1,3),2] 
 
-#Array multidimensional(subdimensão)
+#Array multidimensional(subdimensao)
 #--dim=(linha,coluna,subdimensão,dimensão principal)
 B <- array(1:3*3*2*3,dim=(c(3,4,2,3)))
 B
 
 
-# Operações de comparação
+# Operacoes de comparacao
 z <- c(1,5,8,3,90,33,1,2,4,100,37)
 z<5
 z[z<5]
