@@ -148,7 +148,7 @@ A[,1,2]
 A[,c(1,3),2] 
 
 #Array multidimensional(subdimensao)
-#--dim=(linha,coluna,subdimensão,dimensão principal)
+#--dim=(linha,coluna,subdimensão,dimensao principal)
 B <- array(1:3*3*2*3,dim=(c(3,4,2,3)))
 B
 
