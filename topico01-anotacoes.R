@@ -142,3 +142,59 @@ A
 
 
 #selecionar uma linha ou uma coluna do array 
+#--todas as linhas da segunda coluna da segunda dimensão
+A[,1,2]
+#---
+A[,c(1,3),2] 
+
+#Array multidimensional(subdimensão)
+#--dim=(linha,coluna,subdimensão,dimensão principal)
+B <- array(1:3*3*2*3,dim=(c(3,4,2,3)))
+B
+
+
+# Operações de comparação
+z <- c(1,5,8,3,90,33,1,2,4,100,37)
+z<5
+z[z<5]
+z>50
+
+#--AND
+z[(z<5) & (z>50)]
+
+#--OR
+z[(z<5) | (z>50)]
+
+#vetor sexo
+sexo <- rep(c("M","F"),times=50)
+sexo
+sexo == "M"
+
+
+#-------------------------------
+
+#normal
+normal <- rnorm(1000)
+normal
+
+#historigrama
+hist(normal) 
+
+#media
+mean(normal)
+
+#desvio padrao
+sd(normal)
+
+#associacao de vetores
+cbind(sexo,normal)
+normal[sexo=="M"]
+normal[sexo=="M"] & (normal > 0) 
+
+#factor
+meses <- c("JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ")  
+meses.f1 <- factor(meses, ordered=TRUE) 
+meses.f1
+meses.f1 <- factor(meses) 
+meses.f1
+str(meses.f1) 
