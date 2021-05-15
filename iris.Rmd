@@ -1,0 +1,90 @@
+---
+title: "Análise do Banco de dados Iris"
+author: "Vivian dos Reis"
+date: "15/05/2021"
+output: html_document
+---
+
+
+# Lendo o banco de dados e verificando a estrutura do banco de dados
+Como o dataset Iris jé é padrão do R, não é necessário fazer a importação de nenhum arquivo de dados externo.
+
+```{r}
+str(iris)
+
+```
+# Visualização inicial dos dados:
+```{r}
+head(iris)
+```
+
+# 1. Visualização das 10 primeiras linhas de cada espécie de flor:
+```{r}
+subset(iris,Species == "setosa")[1:10,]
+```
+
+```{r}
+subset(iris,Species == "versicolor")[1:10,]
+```
+
+
+```{r}
+subset(iris,Species == "virginica")[1:10,]
+```
+
+# 2. Análise exploratória de dados
+## 2.1 Estatísticas básicas
+Estatísticas básicas de cada variável
+```{r}
+summary(iris)
+```
+
+# Estística sumária para espécie **Setosa**
+```{r}
+summary(subset(iris,Species == "setosa"))
+```
+
+# Estística sumária para espécie **Virginica**
+```{r}
+summary(subset(iris,Species == "virginica"))
+```
+
+# Estística sumária para espécie **Versicolor**
+```{r}
+summary(subset(iris,Species == "versicolor"))
+```
+
+## 2.2 Visualização da distribuição das variáveis (geral)
+```{r}
+hist(iris$Petal.Length,
+     main="Distribuição do comprimento das pétalas",
+     xlab = "Comprimento das pétalas",
+     ylab = "Frequência absoluta")
+```
+
+```{r}
+hist(iris$Petal.Width,
+     main="Distribuição do largura das pétalas",
+     xlab = "Largura das pétalas",
+     ylab = "Frequência absoluta")
+```
+
+```{r}
+hist(iris$Sepal.Length,
+     main="Distribuição do comprimento das sépalas",
+     xlab = "Comprimento das sépalas",
+     ylab = "Frequência absoluta")
+```
+
+```{r}
+hist(iris$Sepal.Width,
+     main="Distribuição da largura das sépalas",
+     xlab = "Largura das sépalas",
+     ylab = "Frequência absoluta")
+```
+
+## Boxplot
+```{r}
+boxplot(iris$Sepal.Width)
+```
+
