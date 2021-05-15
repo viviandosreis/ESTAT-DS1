@@ -86,5 +86,118 @@ hist(iris$Sepal.Width,
 ## Boxplot
 ```{r}
 boxplot(iris$Sepal.Width)
+summary(iris$Sepal.Width)
 ```
 
+```{r}
+boxplot(iris$Petal.Length)
+summary(iris$Petal.Length)
+```
+
+## intervalo inter quartil
+```{r}
+IQR(iris$Petal.Length)
+```
+
+## quantile
+```{r}
+quantile(iris$Petal.Length,prob=0.75)
+```
+
+Análise do comprimento das pétalas por espécie
+```{r}
+boxplot(iris$Petal.Length ~ iris$Species,
+        main = "Comprimento das pétalas por espécie",
+        xlab = "Espécies da flor Íris",
+        ylab = "Comprimento (cm)")
+
+```
+
+Boxplot com todas as variáveis
+```{r}
+boxplot(iris,
+        main = "Todas as variáveis")
+
+```
+
+Análise do comprimento das sépalas por espécie
+```{r}
+boxplot(iris$Sepal.Length ~ iris$Species,
+        main = "Comprimento das sépalas por espécie",
+        xlab = "Espécies da flor Íris",
+        ylab = "Comprimento (cm)")
+```
+
+## 2.2 Análise de correlação
+```{r}
+plot(iris$Sepal.Length, iris$Petal.Length)
+```
+
+## Coeficiente de correlação (quanto mais próximo de 1 maior a correlação)
+```{r}
+cor(iris$Sepal.Length, iris$Petal.Length)
+```
+
+## Gráfico de dispersão de todas as variáveis do banco
+```{r}
+pairs(iris[,1:4])
+```
+
+```{r}
+cor(iris$Sepal.Width, iris$Petal.Width)
+```
+
+## Gráfico de dispersão de todas as variáveis do banco por espécie
+```{r}
+pairs(iris[,1:4], col=iris[,5])
+```
+
+# Análise de decisão básica
+```{r}
+#install.packages("C50")
+library(C50)
+```
+
+```{r}
+#install.packages("C50")
+entrada <- iris[,1:4]
+classificacao <- iris[,5]
+modelo <- C5.0(entrada,classificacao,control=C5.0Control(noGlobalPruning = TRUE, minCases = 1))
+```
+
+# o modelo
+```{r}
+str(modelo)
+```
+
+#plotando o modelo
+```{r}
+plot(modelo)
+```
+
+# modelo 2
+```{r}
+modelo2 <- C5.0(entrada,classificacao,control=C5.0Control(noGlobalPruning = FALSE))
+```
+
+#plotando o modelo 2
+```{r}
+plot(modelo2)
+```
+
+```{r}
+C5imp(modelo2,metric="usage")
+```
+
+# Criando dados de uma nova flor para usar decidir qual a espécie da nova flor
+```{r}
+#nova.flor <- c(1.5,2.6,3,5)
+nova.flor <- data.frame("Sepal.Length"=1.5,"Sepal.Width"=2.6,"Petal.Length"=3,"Petal.Width"=5)
+nova.flor
+```
+
+# Predição para decidir qual a espécie a nova flor utilizando o modelo 2
+```{r}
+predicao <- predict(modelo2,nova.flor,type="class")
+predicao
+```
