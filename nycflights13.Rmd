@@ -117,3 +117,32 @@ ggplot(mpg) +
   geom_point(aes(x = displ, y = hwy)) +
   facet_wrap(~class,nrow=2)
 ```
+
+# consumo por classe de carro
+```{r}
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy)) +
+  facet_wrap(~class,nrow=2) +
+  labs("Litragem do motor",y="Consumo",title="Consumo por classe de carro")
+```
+
+# boxplot na vertical
+```{r}
+ggplot(mpg) + 
+  geom_boxplot(aes(hwy)) +
+  facet_wrap(~class,nrow=2)
+```
+
+#boxplot na horizontal
+```{r}
+ggplot(mpg) +
+  geom_boxplot( aes(hwy) ) +
+  facet_wrap(~class,nrow=2) +
+  coord_flip()
+```
+
+#boxplot de todas as categorias em um gráfico só
+```{r}
+ggplot(mpg) +
+  geom_boxplot( aes(hwy, group=class, color=class ))
+```
