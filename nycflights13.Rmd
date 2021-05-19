@@ -1,0 +1,77 @@
+---
+title: "nycflights13"
+author: "Vivian"
+date: "18/05/2021"
+output: html_document
+---
+
+#Pset 01
+
+# Instalação do tidyverse
+```{r}
+#install.packages("tidyverse")
+```
+
+# Carregando tidyverse
+```{r}
+library(tidyverse)
+```
+
+# Instalação do nycflights13
+```{r}
+#install.packages("nycflights13")
+```
+
+# Estudo do dplyr
+```{r}
+library(nycflights13)
+```
+
+# Verificação do dados
+```{r}
+flights
+```
+
+# voos de janeiro
+```{r}
+flights[flights$month == 1,]
+```
+
+# voos do dia 15 de janeiro
+```{r}
+#flights[flights$month == 1 & flights$day == 15 ,]
+#ou
+filter(flights, month == 1, day == 15)
+```
+
+# voos do dia 15 de janeiro e 15 de julho
+```{r}
+#flights[(flights$month == 1 | flights$month == 7)  & flights$day == 15 ,]
+#ou
+filter(flights, month %in% c(1,7), day == 15)
+```
+
+# Selecionar colunas
+```{r}
+select(flights, month, day, arr_delay)
+```
+
+# Selecionar internvalo de colunas
+```{r}
+select(flights, dep_time : sched_arr_time)
+```
+
+# Reexpressar variável (acrescentando a variavel veloc_media em km/h)
+```{r}
+mutate(flights,
+       veloc_media = ((distance*1.6)/(air_time/60)))
+```
+
+# Ordenar banco de dados por atraso da partida
+```{r}
+arrange(flights, month, dep_delay)
+```
+
+#----------------------------------------------------------------------------
+
+# ggplot 2
