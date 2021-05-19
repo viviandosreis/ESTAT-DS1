@@ -76,7 +76,7 @@ arrange(flights, month, dep_delay)
 
 # ggplot 2
 
-# Banco de carros dos 38 carros mais populares de 1999 a 2008
+# Banco de dados ddos carros mais populares de 1999 a 2008
 ```{r}
 mpg
 ```
