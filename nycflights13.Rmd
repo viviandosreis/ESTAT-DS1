@@ -75,3 +75,45 @@ arrange(flights, month, dep_delay)
 #----------------------------------------------------------------------------
 
 # ggplot 2
+
+# Banco de carros dos 38 carros mais populares de 1999 a 2008
+```{r}
+mpg
+```
+
+# plotando os dados do mpg
+```{r}
+ggplot(mpg)
+```
+
+# plotando os dados do mpg
+```{r}
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy))
+```
+
+# separando por veiculo
+```{r}
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy, color = class))
+```
+
+# separando por veiculo (pontos maiores)
+```{r}
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy, color = class, size = class))
+```
+
+# separando por veiculo (linha)
+```{r}
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy, color = class)) +
+  geom_smooth(aes(x = displ, y = hwy))
+```
+
+# um grafico para cada tipo veiculo
+```{r}
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy)) +
+  facet_wrap(~class,nrow=2)
+```
